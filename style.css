@@ -1,0 +1,322 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root{
+  --red:rgb(121, 11, 11);
+}
+body{
+  font-family: "Playfair Display", serif;
+}
+@font-face {
+    font-family: 'Abbassy';
+    src: url('font/MTD-Abbassy-Script.otf') format('woff2'),
+         url('font/Abbassy Demo.ttf') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Hoatay';
+    src: url('font/UVN-Hoa-Tay.ttf') format('woff2'),
+         url('font/UVN-Hoa-Tay.ttf') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+img{
+  max-width: 100%;
+}
+section{
+  /* padding:5vh 0 ; */
+  min-height: 100vh;
+  background-color: rgb(251, 241, 241);
+}
+.container{
+  max-width: 445px;
+  margin: 0 auto;
+  padding: 15px;
+}
+.hero{
+  background-image: url("https://assets.cinelove.me/uploads/80804c06-219d-4fac-a1c9-0c27ff69dd1f/e80a310b-849f-4280-9516-8d0c53c79903.jpg");
+  background-position: top center;
+  background-size: cover;
+  height:584px;
+}
+.container-wrapper{
+  /* padding:15px ; */
+}
+.hero h1 {
+  text-align: center;
+  font-family: "Abbassy", cursive;
+  font-size: 33px;
+  font-weight: 700;
+  color: var(--red);
+}
+.hero .slogan{
+font-size: 56px;
+text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+  color: var(--red);
+  text-align: center;
+  font-family: "Abbassy", cursive;
+transform: rotate(350.305deg);
+margin-left: -30px;
+margin-top: 5px;
+}
+.hero .date{
+  font-family: "Playfair Display";
+  color: var(--red);
+  text-align: center;
+  font-size: 22px;
+text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+line-height: 1.82;
+font-weight: 500;
+}
+.container-infor{
+  padding: 0;
+}
+.circle{
+  width: 100%;
+  height: calc(100vw - 30px);
+  border-radius: 50%;
+  background-color: rgb(251, 241, 241) ;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -70px;
+  gap: 20px;
+}
+.circle .logo{
+  transform: rotate(0deg) scale(1, 1);
+  position: absolute;
+  top:-35px;
+  left: calc(50% - 22px);
+  animation-name: wiggle;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.circle .logo img{
+  width: 44px ;
+  height: 69px;
+  object-fit: contain;
+}
+.circle .infor{
+  text-transform:uppercase ;
+  font-weight: 700;
+  text-align: center;
+}
+.circle h2{
+  color: rgb(46, 46, 46);
+  font-size: 13.5px;
+text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+margin-bottom: 10px;
+}
+.circle p{
+  color: #000;
+  font-size:11.5px ;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+}
+.circle .location{
+  color: rgb(46, 46, 46);
+  font-size: 12px;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+  text-transform: capitalize;
+  font-weight: 500;
+  margin-top: 20px;
+}
+@keyframes wiggle{
+  0%, 100% {
+    transform: rotate(0deg);
+}
+
+25% {
+    transform: rotate(3deg);
+}
+75% {
+    transform: rotate(-3deg);
+}
+}
+.container-welcome{
+  position: relative;
+  margin-top: -70px;
+}
+.container-welcome h2{
+  font-size: 13.5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin-bottom: 70px;
+}
+.welcom-flex{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.welcome-item{
+      -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/001_ecxcylqi2s.png);
+    -webkit-mask-box-image-slice: 0 fill;
+    mask-image: url(https://assets.cinelove.me/resources/cropShapes/001_ecxcylqi2s.png);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+}
+.welcome-item:last-child{
+  text-align: right;
+}
+.welcome-item .main{
+  aspect-ratio: 155/226;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+}
+.welcome-item .title{
+  height: 24px;
+  margin-top: 3px;
+}
+.container-calendar{
+  margin-top: 45px;
+}
+.couple-name{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.couple-name h2{
+  font-size: 30px;
+  color: #000;
+  font-weight: 500;
+  font-family: "Hoatay", cursive;
+  width: 50%;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+}
+.couple-name h2:first-child{
+  text-align: right;
+}
+.couple-name img {
+width: 31px;
+height: 31px;
+object-fit: contain;
+}
+.text-love{
+  color:var(--red);
+  text-align: center;
+  font-size: 19.5px;
+  margin-top: 30px;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+  letter-spacing: 4px;
+}
+.calendar-box{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin-top: 20px;
+  background-image: url("https://assets.cinelove.me/uploads/80804c06-219d-4fac-a1c9-0c27ff69dd1f/f46a6d17-65de-4fe5-b761-f72691a6c5f4.jpg");
+  background-size: cover;
+  background-position: top center;
+  aspect-ratio: 257/386;
+  width: 75%;
+  margin-inline:auto;
+    -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
+    -webkit-mask-box-image-slice: 0 fill;
+    mask-image: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    z-index: 2;
+}
+.calendar-box-wrapper{
+  position: relative;
+}
+.calendar-box-shadow{
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 100%;
+  background-color: #fff;
+  mask-size: 100% 100%;
+  z-index: 1;
+    margin-inline:auto;
+    -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
+    -webkit-mask-box-image-slice: 0 fill;
+    mask-image: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+}
+.calendar-box::after{
+  content: "";
+  position: absolute;
+  top: 67%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+background-color: rgba(255, 255, 255, .4);
+z-index: 1;
+border-radius: 50%;
+}
+.calendar {
+  color: #000;
+  font-family: "inter", serif;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 50px;
+}
+
+.calendar-month {
+  text-align: center;
+  font-size: 19.5px;
+  color: var(--red);
+  font-family: "Hoatay", cursive;
+      animation-name: float;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+}
+
+50% {
+    transform: translateY(-10px);
+}
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+.calendar-day {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8.25px;
+  line-height: 1;
+  position: relative;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+}
+
+.calendar-day.is-empty {
+  visibility: hidden;
+}
+
+.calendar-day.is-highlight {
+  background-image: url("https://assets.cinelove.me/assets/plugins/calen_heart_1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(217, 75, 75, 0.35);
+}
