@@ -1,52 +1,71 @@
-*{
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-:root{
-  --red:rgb(121, 11, 11);
+
+:root {
+  --red: rgb(121, 11, 11);
 }
-body{
+
+body {
   font-family: "Playfair Display", serif;
 }
+
 @font-face {
-    font-family: 'Abbassy';
-    src: url('font/MTD-Abbassy-Script.otf') format('woff2'),
-         url('font/Abbassy Demo.ttf') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Abbassy';
+  src: url('font/MTD-Abbassy-Script.otf') format('woff2'),
+    url('font/Abbassy Demo.ttf') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
-    font-family: 'Hoatay';
-    src: url('font/UVN-Hoa-Tay.ttf') format('woff2'),
-         url('font/UVN-Hoa-Tay.ttf') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Hoatay';
+  src: url('font/UVN-Hoa-Tay.ttf') format('woff2'),
+    url('font/UVN-Hoa-Tay.ttf') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-img{
+
+@font-face {
+  font-family: 'note';
+  src: url('font/1FTV-VIP-Soul-Note-Display.otf') format('woff2'),
+    url('font/1FTV-VIP-Soul-Note-Display.otf') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+img {
   max-width: 100%;
 }
-section{
+
+section {
   /* padding:5vh 0 ; */
   min-height: 100vh;
   background-color: rgb(251, 241, 241);
 }
-.container{
+
+.container {
   max-width: 445px;
   margin: 0 auto;
   padding: 15px;
 }
-.hero{
+
+.hero {
   background-image: url("https://assets.cinelove.me/uploads/80804c06-219d-4fac-a1c9-0c27ff69dd1f/e80a310b-849f-4280-9516-8d0c53c79903.jpg");
   background-position: top center;
   background-size: cover;
-  height:584px;
+  height: 584px;
 }
-.container-wrapper{
+
+.container-wrapper {
   /* padding:15px ; */
 }
+
 .hero h1 {
   text-align: center;
   font-family: "Abbassy", cursive;
@@ -54,33 +73,37 @@ section{
   font-weight: 700;
   color: var(--red);
 }
-.hero .slogan{
-font-size: 56px;
-text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+
+.hero .slogan {
+  font-size: 56px;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
   color: var(--red);
   text-align: center;
   font-family: "Abbassy", cursive;
-transform: rotate(350.305deg);
-margin-left: -30px;
-margin-top: 5px;
+  transform: rotate(350.305deg);
+  margin-left: -30px;
+  margin-top: 5px;
 }
-.hero .date{
+
+.hero .date {
   font-family: "Playfair Display";
   color: var(--red);
   text-align: center;
   font-size: 22px;
-text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
-line-height: 1.82;
-font-weight: 500;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+  line-height: 1.82;
+  font-weight: 500;
 }
-.container-infor{
+
+.container-infor {
   padding: 0;
 }
-.circle{
+
+.circle {
   width: 100%;
   height: calc(100vw - 30px);
   border-radius: 50%;
-  background-color: rgb(251, 241, 241) ;
+  background-color: rgb(251, 241, 241);
   position: relative;
   display: flex;
   justify-content: center;
@@ -88,39 +111,45 @@ font-weight: 500;
   margin-top: -70px;
   gap: 20px;
 }
-.circle .logo{
+
+.circle .logo {
   transform: rotate(0deg) scale(1, 1);
   position: absolute;
-  top:-35px;
+  top: -35px;
   left: calc(50% - 22px);
   animation-name: wiggle;
-    animation-duration: 2s;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
-.circle .logo img{
-  width: 44px ;
+
+.circle .logo img {
+  width: 44px;
   height: 69px;
   object-fit: contain;
 }
-.circle .infor{
-  text-transform:uppercase ;
+
+.circle .infor {
+  text-transform: uppercase;
   font-weight: 700;
   text-align: center;
 }
-.circle h2{
+
+.circle h2 {
   color: rgb(46, 46, 46);
   font-size: 13.5px;
-text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
-margin-bottom: 10px;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+  margin-bottom: 10px;
 }
-.circle p{
+
+.circle p {
   color: #000;
-  font-size:11.5px ;
+  font-size: 11.5px;
   text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
 }
-.circle .location{
+
+.circle .location {
   color: rgb(46, 46, 46);
   font-size: 12px;
   text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
@@ -128,23 +157,27 @@ margin-bottom: 10px;
   font-weight: 500;
   margin-top: 20px;
 }
-@keyframes wiggle{
+
+@keyframes wiggle {
   0%, 100% {
     transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(3deg);
+  }
+
+  75% {
+    transform: rotate(-3deg);
+  }
 }
 
-25% {
-    transform: rotate(3deg);
-}
-75% {
-    transform: rotate(-3deg);
-}
-}
-.container-welcome{
+.container-welcome {
   position: relative;
   margin-top: -70px;
 }
-.container-welcome h2{
+
+.container-welcome h2 {
   font-size: 13.5px;
   text-transform: uppercase;
   font-weight: bold;
@@ -152,40 +185,48 @@ margin-bottom: 10px;
   text-align: center;
   margin-bottom: 70px;
 }
-.welcom-flex{
+
+.welcom-flex {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
-.welcome-item{
-      -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/001_ecxcylqi2s.png);
-    -webkit-mask-box-image-slice: 0 fill;
-    mask-image: url(https://assets.cinelove.me/resources/cropShapes/001_ecxcylqi2s.png);
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
+
+.welcome-item {
+  -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/001_ecxcylqi2s.png);
+  -webkit-mask-box-image-slice: 0 fill;
+  mask-image: url(https://assets.cinelove.me/resources/cropShapes/001_ecxcylqi2s.png);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
 }
-.welcome-item:last-child{
+
+.welcome-item:last-child {
   text-align: right;
 }
-.welcome-item .main{
+
+.welcome-item .main {
   aspect-ratio: 155/226;
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
 }
-.welcome-item .title{
+
+.welcome-item .title {
   height: 24px;
   margin-top: 3px;
 }
-.container-calendar{
+
+.container-calendar {
   margin-top: 45px;
 }
-.couple-name{
+
+.couple-name {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
 }
-.couple-name h2{
+
+.couple-name h2 {
   font-size: 30px;
   color: #000;
   font-weight: 500;
@@ -193,23 +234,27 @@ margin-bottom: 10px;
   width: 50%;
   text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
 }
-.couple-name h2:first-child{
+
+.couple-name h2:first-child {
   text-align: right;
 }
+
 .couple-name img {
-width: 31px;
-height: 31px;
-object-fit: contain;
+  width: 31px;
+  height: 31px;
+  object-fit: contain;
 }
-.text-love{
-  color:var(--red);
+
+.text-love {
+  color: var(--red);
   text-align: center;
   font-size: 19.5px;
   margin-top: 30px;
   text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
   letter-spacing: 4px;
 }
-.calendar-box{
+
+.calendar-box {
   position: relative;
   display: flex;
   justify-content: center;
@@ -220,18 +265,20 @@ object-fit: contain;
   background-position: top center;
   aspect-ratio: 257/386;
   width: 75%;
-  margin-inline:auto;
-    -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
-    -webkit-mask-box-image-slice: 0 fill;
-    mask-image: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-    z-index: 2;
+  margin-inline: auto;
+  -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
+  -webkit-mask-box-image-slice: 0 fill;
+  mask-image: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  z-index: 2;
 }
-.calendar-box-wrapper{
+
+.calendar-box-wrapper {
   position: relative;
 }
-.calendar-box-shadow{
+
+.calendar-box-shadow {
   position: absolute;
   top: 50%;
   left: 45%;
@@ -241,14 +288,15 @@ object-fit: contain;
   background-color: #fff;
   mask-size: 100% 100%;
   z-index: 1;
-    margin-inline:auto;
-    -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
-    -webkit-mask-box-image-slice: 0 fill;
-    mask-image: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
+  margin-inline: auto;
+  -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
+  -webkit-mask-box-image-slice: 0 fill;
+  mask-image: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
 }
-.calendar-box::after{
+
+.calendar-box::after {
   content: "";
   position: absolute;
   top: 67%;
@@ -256,10 +304,11 @@ object-fit: contain;
   transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
-background-color: rgba(255, 255, 255, .4);
-z-index: 1;
-border-radius: 50%;
+  background-color: rgba(255, 255, 255, .4);
+  z-index: 1;
+  border-radius: 50%;
 }
+
 .calendar {
   color: #000;
   font-family: "inter", serif;
@@ -273,22 +322,24 @@ border-radius: 50%;
   font-size: 19.5px;
   color: var(--red);
   font-family: "Hoatay", cursive;
-      animation-name: float;
-    animation-duration: 2s;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+  animation-name: float;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 
 }
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-50% {
-    transform: translateY(-10px);
-}
-}
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -319,4 +370,174 @@ border-radius: 50%;
   background-position: center;
   color: #fff;
   box-shadow: 0 4px 10px rgba(217, 75, 75, 0.35);
+}
+
+.container-mail .title {
+  color: #000;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+  font-size: 16.5px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  margin-bottom: -80px;
+  color: #000;
+}
+
+.container-mail .title svg path {
+  fill: var(--red);
+}
+
+.container-mail .title h2 {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+}
+
+.container-mail .box {
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  background-color: #fff;
+  flex-direction: column;
+  padding-top: 60px;
+  border-radius: 10px;
+  max-width: 90%;
+  margin: auto;
+  box-shadow: 0px 0px 5px rgba(217, 75, 75, 0.35);
+}
+
+.container-mail .box-item {
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+
+}
+
+.box-title {
+  font-size: 15.75px;
+  color: var(--red);
+  font-weight: bold;
+}
+
+.box-time {
+  font-size: 13.5px;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+}
+
+.box-date {
+  font-size: 30px;
+  color: var(--red);
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes pulse {
+
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: .8;
+  }
+}
+
+.box-lunar-date {
+  font-size: 11.25px;
+  color: rgb(46, 46, 46);
+  text-transform: capitalize;
+}
+
+.box-location-title {
+  font-size: 15.75px;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+}
+
+.box-location {
+  color: rgb(46, 46, 46);
+  font-size: 11.25px;
+  text-transform: capitalize;
+}
+
+.lich .flex {
+  display: flex;
+  text-transform: uppercase;
+  font-size: 22px;
+  justify-content: space-between;
+  color: rgb(46, 46, 46);
+}
+
+.lich div {
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+
+}
+
+.container-thanh-hon .title-text {
+  font-size: 22.5px;
+  color: var(--red);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-bottom: 30px;
+}
+
+.container-thanh-hon .title-image {
+  width: 256px;
+  margin: auto;
+  display: block;
+  height: 46px;
+  margin-bottom: 20px;
+}
+
+.day-week {
+  font-size: 22.5px;
+  font-family: "note";
+  color: rgb(46, 46, 46);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.lich .flex div:not(.day) {
+  border-top: 1px solid rgb(230, 201, 201);
+  border-bottom: 1px solid rgb(230, 201, 201);
+  padding: 8px 0;
+}
+
+.lich .day {
+  font-size: 46.5px;
+  color: var(--red);
+  font-weight: bold;
+  font-family: "inter";
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.container-thanh-hon .lunar {
+  font-size: 13.5px;
+}
+
+.hour {
+  color: rgb(74, 74, 74);
+  font-family: "note";
 }
