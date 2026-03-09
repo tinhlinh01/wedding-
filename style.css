@@ -46,7 +46,92 @@ body {
   font-style: normal;
   font-display: swap;
 }
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  opacity: 1;
+  visibility: visible;
+}
 
+.page-loader__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.page-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Biến thể nhẹ hơn cho ảnh */
+.reveal-image {
+  opacity: 0;
+  transform: scale(0.98) translateY(14px);
+  transition: opacity 1s ease, transform 1s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-image.is-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Biến thể cho text */
+.reveal-text {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-text.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay nhẹ để có nhịp hơn */
+.reveal-delay-1 {
+  transition-delay: 0.12s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.24s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.36s;
+}
+
+/* Tôn trọng người dùng tắt animation */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-image,
+  .reveal-text {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 img {
   max-width: 100%;
 }

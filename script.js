@@ -1,4 +1,47 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const loaderStart = Date.now();
+
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("page-loader");
+    if (!loader) return;
+
+    const minDuration = 800;
+    const elapsed = Date.now() - loaderStart;
+    const delay = Math.max(0, minDuration - elapsed);
+
+    setTimeout(function () {
+      loader.classList.add("is-hidden");
+
+      setTimeout(function () {
+        loader.remove();
+      }, 500);
+    }, delay);
+  });
+  function initRevealOnScroll() {
+  const elements = document.querySelectorAll(
+    ".reveal, .reveal-image, .reveal-text"
+  );
+
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target); // chỉ animate 1 lần
+      });
+    },
+    {
+      threshold: 0.18,
+      root: null,
+      rootMargin: "0px 0px -8% 0px"
+    }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+}
   function renderWeddingCalendar({
     elementId,
     month,
@@ -235,6 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
       handleManualInterruption();
     }
   }, { passive: true });
+  initRevealOnScroll();
 
   setAutoScrollButtonVisible(false);
   startAutoScroll();
