@@ -38,6 +38,14 @@ body {
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'carlytte';
+  src: url('font/1FTV-Carlytte.ttf') format('woff2'),
+    url('font/1FTV-Carlytte.ttf') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 img {
   max-width: 100%;
@@ -56,7 +64,8 @@ section {
 }
 
 .hero {
-  background-image: url("https://assets.cinelove.me/uploads/80804c06-219d-4fac-a1c9-0c27ff69dd1f/e80a310b-849f-4280-9516-8d0c53c79903.jpg");
+  /* background-image: url("https://assets.cinelove.me/uploads/80804c06-219d-4fac-a1c9-0c27ff69dd1f/e80a310b-849f-4280-9516-8d0c53c79903.jpg"); */
+  background-image: url("images/hero-1.png");
   background-position: top center;
   background-size: cover;
   height: 584px;
@@ -260,7 +269,8 @@ section {
   justify-content: center;
   align-items: end;
   margin-top: 20px;
-  background-image: url("https://assets.cinelove.me/uploads/80804c06-219d-4fac-a1c9-0c27ff69dd1f/f46a6d17-65de-4fe5-b761-f72691a6c5f4.jpg");
+  /* background-image: url("https://assets.cinelove.me/uploads/80804c06-219d-4fac-a1c9-0c27ff69dd1f/f46a6d17-65de-4fe5-b761-f72691a6c5f4.jpg"); */
+  background-image: url("images/bg-calendar.png");
   background-size: cover;
   background-position: top center;
   aspect-ratio: 257/386;
@@ -311,7 +321,7 @@ section {
 
 .calendar {
   color: #000;
-  font-family: "inter", serif;
+  font-family: "roboto", serif;
   position: relative;
   z-index: 2;
   margin-bottom: 50px;
@@ -525,7 +535,7 @@ section {
   font-size: 46.5px;
   color: var(--red);
   font-weight: bold;
-  font-family: "inter";
+  font-family: "roboto";
   animation-name: pulse;
   animation-duration: 2s;
   animation-delay: 0s;
@@ -535,9 +545,206 @@ section {
 
 .container-thanh-hon .lunar {
   font-size: 13.5px;
+  font-family: "roboto";
 }
 
 .hour {
   color: rgb(74, 74, 74);
   font-family: "note";
+  font-size: 22.5px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.container-location .flex-layout{
+  display: flex;
+}
+.container-location .flex-layout > div {
+  width: 50%;
+}
+.container-location{
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+}
+.container-location .title{
+ font-size: 15px;
+ text-align: center;
+ text-transform: uppercase;
+ font-weight: bold;
+ margin-top: 15px;
+ margin-bottom: 10px;
+}
+.container-location .location{
+  text-align: center;
+  font-family: "roboto";
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+.container-location .address{
+  padding-right: 10px;
+}
+.container-location iframe{
+  margin: auto;
+  display: block;
+  margin-top: 10px;
+  border: 1px solid #000;
+}
+.container-location .title-image{
+  width: 150px;
+  display: block;
+}
+.countdown {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  font-family: "roboto";
+  margin-top: -40px;
+}
+
+.countdown-item {
+  width: 45px;
+  height: 56px;
+  background: var(--red);
+  border-radius: 4px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+}
+
+.countdown-number {
+  margin-bottom: 4px;
+}
+
+.countdown-label {
+  /* font-weight: 700; */
+}
+.gallery-1{
+  margin-top: 30px;
+}
+.gallery-1 .title-image{
+  width: 256px;
+  height: 66px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  margin-bottom: -45px;
+}
+.gallery-1 .img-1{
+    -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
+    -webkit-mask-box-image-slice: 0 fill;
+    mask-image: url(https://assets.cinelove.me/resources/cropShapes/029_grhum0ffpk.png);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+  display: block;
+  margin: auto;
+  width: 297px;
+  height: 466px;
+  object-fit: cover;
+}
+.thu-tay{
+  text-align: center;
+  font-size: 19.5px;
+  text-shadow: rgba(0, 0, 0, 0) 0px 0px 2px;
+  color:rgb(47 45 45);
+  font-family: 'carlytte', cursive;
+  margin-top: 30px;
+}
+.container-gallery{
+  padding: 40px 0 60px 0;
+  position: relative;
+}
+.gallery-background{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0.25;
+  left: 0;
+}
+.container-gallery img:not(.gallery-background) {
+  position: relative;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px 0px;
+
+    display: block;
+    object-fit: cover;
+}
+.gallery-2{
+  width: 309px;
+  height: 205px;
+  margin-left: auto;
+  margin-bottom: 50px;
+
+}
+.gallery-3{
+  width: 306px;
+  height: 189px;
+  object-fit: cover;
+}
+.container-thanks{
+  width: 100%;
+  aspect-ratio: 375/563 ;
+  /* background-image: url("https://assets.cinelove.me/uploads/80804c06-219d-4fac-a1c9-0c27ff69dd1f/ef4fe624-8736-432c-bda9-c44e716e17c7.jpg"); */
+  background-image: url("images/thanks.png");
+  background-size: cover;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+}
+.container-thanks img{
+  width: 150px;
+  display: block;
+  margin: auto;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+.auto-scroll {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 5;
+}
+.audio {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+  align-items: center;
+  cursor: pointer;
+  background-color: #000;
+}
+.audio::after{
+  content: "";
+  position: absolute;
+  top:50%;
+  left:0;
+  display: block;
+  width:100%;
+  border-top:1px solid #fff;
+       -webkit-transform: rotate(45deg); 
+    -ms-transform: rotate(45deg);
+     transform: rotate(45deg);
+}
+.audio.active::after{
+  display: none;
 }
