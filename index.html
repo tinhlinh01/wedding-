@@ -1,9 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Thiệp cưới Hoàng Tùng &amp; Hà Bích</title>
+    <meta
+      name="description"
+      content="Thiệp cưới online của Hoàng Tùng và Hà Bích với hiệu ứng mở thiệp, nhạc nền, lịch cưới, bản đồ và đếm ngược ngày cưới."
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,12 +17,21 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body
+    data-wedding-date="2026-03-29T00:00:00"
+    data-calendar-month="3"
+    data-calendar-year="2026"
+    data-calendar-highlight-day="29"
+    data-calendar-week-start="monday"
+    data-audio-src="https://assets.cinelove.me/mp3/744fac10-6555-48a7-b265-715d7684a943.mp3"
+    data-auto-scroll-speed="0.05"
+  >
     <div id="page-loader" class="page-loader" aria-hidden="true">
       <div class="page-loader__inner">
         <div class="page-loader__glow page-loader__glow--1"></div>
         <div class="page-loader__glow page-loader__glow--2"></div>
         <div class="page-loader__petals"></div>
+
         <div class="page-loader__content">
           <div class="page-loader__flower"></div>
           <div class="page-loader__title">Hoàng Tùng &amp; Hà Bích</div>
@@ -25,39 +39,67 @@
         </div>
       </div>
     </div>
+
     <div class="fx-bg" aria-hidden="true">
       <div class="fx-glow fx-glow--1"></div>
       <div class="fx-glow fx-glow--2"></div>
       <div class="fx-petals"></div>
     </div>
-    <section>
-      <button class="auto-scroll">
-        <img src="https://assets.cinelove.me/assets/play-icon.png" alt="" />
+
+    <main class="wedding-page">
+      <button
+        class="floating-action auto-scroll"
+        type="button"
+        aria-label="Tự động cuộn trang"
+        title="Tự động cuộn trang"
+      >
+        <img
+          src="https://assets.cinelove.me/assets/play-icon.png"
+          alt=""
+          width="24"
+          height="24"
+        />
       </button>
-      <button class="audio">
-        <img src="https://assets.cinelove.me/assets/audio-1.png" alt="" />
+
+      <button
+        class="floating-action audio"
+        type="button"
+        aria-label="Bật hoặc tắt nhạc nền"
+        aria-pressed="false"
+        title="Bật hoặc tắt nhạc nền"
+      >
+        <img
+          src="https://assets.cinelove.me/assets/audio-1.png"
+          alt=""
+          width="18"
+          height="18"
+        />
       </button>
+
       <div class="container-wrapper">
-        <div class="container hero">
-          <h1>Hoàng Tùng - Hà Bích</h1>
+        <section class="container hero" aria-labelledby="hero-title">
+          <h1 id="hero-title">Hoàng Tùng - Hà Bích</h1>
           <p class="slogan">We got married</p>
           <p class="date">08.03.2026</p>
-        </div>
-        <div class="container container-infor">
+        </section>
+
+        <section class="container container-infor" aria-label="Thông tin hai bên gia đình">
           <div class="circle">
             <div class="logo">
               <img
                 class="reveal-image"
                 src="https://assets.cinelove.me/resources/happiness/0ghigvoh92gm7l17spy6is2.png"
-                alt
+                alt="Biểu tượng cưới"
               />
             </div>
+
             <div class="infor">
               <h2 class="reveal-text">Nhà Trai</h2>
               <p class="reveal-text">Ông Nguyễn Sơn</p>
               <p class="reveal-text">Bà Nguyễn Dung</p>
-              <p class="reveal-text location">Tây Mỗ , Hà Nội</p>
+              <p class="reveal-text location">Tây Mỗ, Hà Nội</p>
             </div>
+
             <div class="infor">
               <h2 class="reveal-text">Nhà Gái</h2>
               <p class="reveal-text">Ông Hà Văn</p>
@@ -65,81 +107,64 @@
               <p class="reveal-text location">Đà Bắc, Hòa Bình</p>
             </div>
           </div>
-        </div>
-        <div class="container container-welcome">
-          <h2 class="reveal-text">trân trọng kính mời</h2>
-          <div class="welcom-flex">
-            <div class="welcome-item">
-              <img class="main" src="images/re.jpg" alt />
-              <!-- <img class="main reveal-image" src="images/ao-dai-left.png" alt=""> -->
+        </section>
 
+        <section class="container container-welcome" aria-labelledby="welcome-title">
+          <h2 id="welcome-title" class="reveal-text">Trân trọng kính mời</h2>
+
+          <div class="welcome-flex">
+            <div class="welcome-item">
+              <img class="main" src="images/re.jpg" alt="Ảnh chú rể" />
               <img
                 class="title reveal-image"
                 src="https://assets.cinelove.me/templates/assets/d0b50b46-aeb0-4787-950d-2ad16e95ed6b/f53f068c-a2c7-477d-baef-690cce51f310.png"
-                alt
+                alt="Chú rể"
               />
             </div>
+
             <div class="welcome-item">
-              <img class="main" src="images/dau.jpg" alt />
-              <!-- <img class="main reveal-image" src="images/right.png" alt=""> -->
+              <img class="main" src="images/dau.jpg" alt="Ảnh cô dâu" />
               <img
                 class="title reveal-image"
                 src="https://assets.cinelove.me/templates/assets/d0b50b46-aeb0-4787-950d-2ad16e95ed6b/332f9d9d-70da-463f-beae-5d81160e33bf.png"
-                alt
+                alt="Cô dâu"
               />
             </div>
           </div>
-        </div>
-        <div class="container container-calendar">
-          <div class="couple-name">
+        </section>
+
+        <section class="container container-calendar" aria-labelledby="calendar-title">
+          <div class="couple-name" id="calendar-title">
             <h2 class="reveal-text">Hoàng Tùng</h2>
             <img
               src="https://assets.cinelove.me/templates/assets/d0b50b46-aeb0-4787-950d-2ad16e95ed6b/e1ea4629-07a0-467f-87f0-da1f1406829c.png"
-              alt
+              alt="Biểu tượng trái tim"
             />
             <h2 class="reveal-text">Hà Bích</h2>
           </div>
+
           <div class="text-love reveal-text">L.O.V.E</div>
+
           <div class="calendar-box-wrapper">
             <div class="calendar-box-shadow"></div>
-
             <div class="calendar-box">
-              <div
-                class="calendar reveal reveal-delay-2"
-                id="wedding-calendar"
-              ></div>
+              <div class="calendar reveal reveal-delay-2" id="wedding-calendar"></div>
             </div>
           </div>
-        </div>
-        <div class="container container-mail">
-          <div
-            class="title"
-            style="
-              width: 100%;
-              height: 100%;
-              overflow: hidden;
-              border: 0px solid;
-              border-radius: 0px;
-              padding: 0px;
-              box-shadow: none;
-            "
-          >
-            <!--?xml version="1.0" encoding="UTF-8"?-->
-            <h2 class="reveal-text">Thư mời tiệc cưới</h2>
+        </section>
+
+        <section class="container container-mail" aria-labelledby="mail-title">
+          <div class="mail-title title">
+            <h2 id="mail-title" class="reveal-text">Thư mời tiệc cưới</h2>
             <svg
               preserveAspectRatio="none"
               width="200"
               height="200"
-              id="_图层_1"
-              data-name="图层 1"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 800 800"
+              aria-hidden="true"
+              focusable="false"
             >
-              <style>
-                #svg-6klbTAdGC2 svg path {
-                  fill: #790b0b;
-                }
-              </style>
               <defs>
                 <style>
                   .cls-1 {
@@ -177,73 +202,73 @@
               ></path>
             </svg>
           </div>
+
           <div class="box">
             <div class="box-item">
-              <h3 class="box-title reveal-text">tiệc cưới nhà trai</h3>
-              <p class="box-time reveal-text">THỨ BẢY - 16 :00</p>
+              <h3 class="box-title reveal-text">Tiệc cưới nhà trai</h3>
+              <p class="box-time reveal-text">Thứ Bảy - 16:00</p>
             </div>
+
             <div class="box-item">
               <div class="box-date reveal-text">29.03.2026</div>
-              <div class="box-lunar-date reveal-text">
-                Tức ngày 19 tháng 01 năm Bính Ngọ
-              </div>
+              <div class="box-lunar-date reveal-text">Tức ngày 19 tháng 01 năm Bính Ngọ</div>
             </div>
+
             <div class="box-item">
-              <div class="box-location-title reveal-text">
-                TẠI TƯ GIA NHÀ TRAI
-              </div>
-              <div class="box-location reveal-text">
-                Thượng Yên, Sông Lô, Phú Thọ
-              </div>
+              <div class="box-location-title reveal-text">Tại tư gia nhà trai</div>
+              <div class="box-location reveal-text">Thượng Yên, Sông Lô, Phú Thọ</div>
             </div>
           </div>
-        </div>
-        <div class="container container-thanh-hon">
+        </section>
+
+        <section class="container container-thanh-hon" aria-labelledby="ceremony-title">
           <img
             class="title-image reveal-image"
             src="https://assets.cinelove.me/templates/assets/d0b50b46-aeb0-4787-950d-2ad16e95ed6b/c50f317e-67c0-4afc-b51f-912edfc6e420.png"
-            alt
+            alt="Trang trí lễ báo hỷ"
           />
-          <div class="title-text reveal-text">lễ báo hỷ</div>
+          <div id="ceremony-title" class="title-text reveal-text">Lễ báo hỷ</div>
+
           <div class="lich">
-            <div class="day-week reveal-text">chủ nhật</div>
+            <div class="day-week reveal-text">Chủ nhật</div>
             <div class="flex">
               <div class="month reveal-text">Tháng 03</div>
               <div class="day reveal-text">29</div>
-              <div class="year reveal-text">năm 2026</div>
+              <div class="year reveal-text">Năm 2026</div>
             </div>
             <div class="hour reveal-text">07:30</div>
-            <div class="lunar reveal-text">
-              Tức ngày 20 tháng 01 năm Bính Ngọ
-            </div>
+            <div class="lunar reveal-text">Tức ngày 20 tháng 01 năm Bính Ngọ</div>
           </div>
-        </div>
-        <div class="container container-location">
+        </section>
+
+        <section class="container container-location" aria-labelledby="location-title">
           <div class="flex-layout">
             <div class="image">
-              <img src="images/address.jpg" alt="" />
-              <!-- <img class="reveal-image" src="images/nha-trai.png" alt=""> -->
+              <img src="images/address.jpg" alt="Ảnh minh họa địa điểm tổ chức" />
             </div>
+
             <div class="address">
               <img
                 class="title-image reveal-image"
                 src="https://assets.cinelove.me/templates/assets/d0b50b46-aeb0-4787-950d-2ad16e95ed6b/5fe64bd1-37de-4e55-bf38-e95fe4af9d17.png"
-                alt=""
+                alt="Biểu tượng địa điểm"
               />
-              <div class="title reveal-text">Tư gia nhà trai</div>
+              <div id="location-title" class="title reveal-text">Tư gia nhà trai</div>
               <div class="location reveal-text">Tây Mỗ, Hà Nội, Việt Nam</div>
               <iframe
+                class="reveal"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.79826334643178!2d105.75070779670783!3d21.001766124191512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134536ee5b9f595%3A0xaa2fcd2a2a691940!2zMjcvNyDEkC4gVMOieSBN4buXLCBUZHAgUGjDuiBUaOG7qSwgTmFtIFThu6sgTGnDqm0sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1773022675301!5m2!1svi!2s"
                 width="138"
                 height="85"
-                allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                class="reveal"
+                allowfullscreen
+                title="Bản đồ địa điểm tổ chức"
               ></iframe>
             </div>
           </div>
-          <div class="countdown" id="wedding-countdown">
+
+          <div class="countdown" id="wedding-countdown" aria-label="Đếm ngược tới ngày cưới">
             <div class="countdown-item reveal">
               <span class="countdown-number" data-type="days">0</span>
               <span class="countdown-label">ngày</span>
@@ -261,40 +286,41 @@
               <span class="countdown-label">giây</span>
             </div>
           </div>
+
           <div class="gallery-1">
             <img
               class="title-image reveal-image"
               src="https://assets.cinelove.me/templates/assets/d0b50b46-aeb0-4787-950d-2ad16e95ed6b/0aa55b0e-02f4-4e87-a126-b49731f115a0.png"
-              alt=""
+              alt="Trang trí gallery"
             />
-            <img src="images/welcome.jpg" alt="" class="img-1" />
-            <!-- <img src="images/wedding.png" alt="" class="img-1 reveal-image"> -->
+            <img src="images/welcome.jpg" alt="Ảnh cặp đôi" class="img-1" />
           </div>
+
           <div class="thu-tay reveal-text">
             Hữu duyên nên nghĩa vợ chồng,<br />
             Trăm năm giữ trọn tấm lòng cùng nhau
           </div>
-        </div>
-        <div class="container container-gallery">
-          <img src="images/gallery-2.jpg" class="gallery-2" alt="" />
-          <!-- <img src="images/hihi.png" alt="" class="gallery-2 reveal-image"> -->
-          <img src="images/gallery-3.jpg" alt="" class="gallery-3" />
-          <!-- <img src="images/gallery3.png" alt="" class="gallery-3 reveal-image"> -->
+        </section>
+
+        <section class="container container-gallery" aria-label="Bộ ảnh kỷ niệm">
+          <img src="images/gallery-2.jpg" class="gallery-2" alt="Ảnh kỷ niệm 1" />
+          <img src="images/gallery-3.jpg" class="gallery-3" alt="Ảnh kỷ niệm 2" />
           <img
             class="gallery-background"
             src="https://assets.cinelove.me/uploads/80804c06-219d-4fac-a1c9-0c27ff69dd1f/f46a6d17-65de-4fe5-b761-f72691a6c5f4.jpg"
             alt=""
           />
-          <!-- <img src="images/g-bg.png" class="gallery-background " alt=""> -->
-        </div>
-        <div class="container container-thanks reveal">
+        </section>
+
+        <section class="container container-thanks reveal" aria-label="Lời cảm ơn">
           <img
             src="https://assets.cinelove.me/templates/assets/d0b50b46-aeb0-4787-950d-2ad16e95ed6b/a9a6f163-a4c3-4afd-83f6-c01ebc4ebe29.png"
-            alt=""
+            alt="Xin chân thành cảm ơn"
           />
-        </div>
+        </section>
       </div>
-    </section>
-    <script src="script.js"></script>
+    </main>
+
+    <script src="script.js" defer></script>
   </body>
 </html>
