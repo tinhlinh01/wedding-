@@ -1,22 +1,65 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const loaderStart = Date.now();
+const loaderStart = Date.now();
+let hasTriedAutoplay = false;
+let firstInteractionBound = false;
 
-  window.addEventListener("load", function () {
-    const loader = document.getElementById("page-loader");
-    if (!loader) return;
+function bindFirstInteractionAudioFallback() {
+  if (firstInteractionBound) return;
+  firstInteractionBound = true;
 
-    const minDuration = 800;
-    const elapsed = Date.now() - loaderStart;
-    const delay = Math.max(0, minDuration - elapsed);
+  const tryPlayOnFirstGesture = async function () {
+    if (!bgAudio.paused) return;
+    await playBackgroundAudio();
+    removeFallbackListeners();
+  };
+
+  function removeFallbackListeners() {
+    window.removeEventListener('click', tryPlayOnFirstGesture);
+    window.removeEventListener('touchstart', tryPlayOnFirstGesture);
+    window.removeEventListener('keydown', tryPlayOnFirstGesture);
+    window.removeEventListener('wheel', tryPlayOnFirstGesture);
+  }
+
+  window.addEventListener('click', tryPlayOnFirstGesture, { passive: true, once: true });
+  window.addEventListener('touchstart', tryPlayOnFirstGesture, { passive: true, once: true });
+  window.addEventListener('keydown', tryPlayOnFirstGesture, { once: true });
+  window.addEventListener('wheel', tryPlayOnFirstGesture, { passive: true, once: true });
+}
+
+async function runAfterLoaderFinished() {
+  if (!hasTriedAutoplay) {
+    hasTriedAutoplay = true;
+    const played = await playBackgroundAudio();
+
+    if (!played) {
+      bindFirstInteractionAudioFallback();
+    }
+  }
+
+  setAutoScrollButtonVisible(false);
+  startAutoScroll();
+}
+
+window.addEventListener("load", function () {
+  const loader = document.getElementById("page-loader");
+  if (!loader) {
+    runAfterLoaderFinished();
+    return;
+  }
+
+  const minDuration = 2200;
+  const elapsed = Date.now() - loaderStart;
+  const delay = Math.max(0, minDuration - elapsed);
+
+  setTimeout(function () {
+    loader.classList.add("is-hidden");
 
     setTimeout(function () {
-      loader.classList.add("is-hidden");
-
-      setTimeout(function () {
-        loader.remove();
-      }, 500);
-    }, delay);
-  });
+      loader.remove();
+      runAfterLoaderFinished();
+    }, 500);
+  }, delay);
+});
   function initRevealOnScroll() {
   const elements = document.querySelectorAll(
     ".reveal, .reveal-image, .reveal-text"
@@ -177,6 +220,69 @@ document.addEventListener("DOMContentLoaded", function () {
     setAudioButtonState(false);
   }
 
+  function bindFirstInteractionAudioFallback() {
+    if (firstInteractionBound) return;
+    firstInteractionBound = true;
+
+    const tryPlayOnFirstGesture = async function () {
+      if (!bgAudio.paused) return;
+
+      const played = await playBackgroundAudio();
+
+      if (played) {
+        removeFallbackListeners();
+      }
+    };
+
+    function removeFallbackListeners() {
+      window.removeEventListener('click', tryPlayOnFirstGesture);
+      window.removeEventListener('touchstart', tryPlayOnFirstGesture);
+      window.removeEventListener('keydown', tryPlayOnFirstGesture);
+      window.removeEventListener('wheel', tryPlayOnFirstGesture);
+    }
+
+    window.addEventListener('click', tryPlayOnFirstGesture, { passive: true, once: true });
+    window.addEventListener('touchstart', tryPlayOnFirstGesture, { passive: true, once: true });
+    window.addEventListener('keydown', tryPlayOnFirstGesture, { once: true });
+    window.addEventListener('wheel', tryPlayOnFirstGesture, { passive: true, once: true });
+  }
+
+  async function runAfterLoaderFinished() {
+    if (!hasTriedAutoplay) {
+      hasTriedAutoplay = true;
+      const played = await playBackgroundAudio();
+
+      if (!played) {
+        bindFirstInteractionAudioFallback();
+      }
+    }
+
+    setAutoScrollButtonVisible(false);
+    startAutoScroll();
+  }
+
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("page-loader");
+
+    if (!loader) {
+      runAfterLoaderFinished();
+      return;
+    }
+
+    const minDuration = 2200;
+    const elapsed = Date.now() - loaderStart;
+    const delay = Math.max(0, minDuration - elapsed);
+
+    setTimeout(function () {
+      loader.classList.add("is-hidden");
+
+      setTimeout(function () {
+        loader.remove();
+        runAfterLoaderFinished();
+      }, 600);
+    }, delay);
+  });
+
   function getMaxScrollableTop() {
     return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
   }
@@ -216,18 +322,21 @@ document.addEventListener("DOMContentLoaded", function () {
     autoScrollRaf = requestAnimationFrame(autoScrollStep);
   }
 
-  async function startAutoScroll({ ensureAudio = false } = {}) {
-    if (ensureAudio) {
-      await playBackgroundAudio();
+async function startAutoScroll({ ensureAudio = false } = {}) {
+  if (ensureAudio && bgAudio.paused) {
+    const played = await playBackgroundAudio();
+    if (!played) {
+      bindFirstInteractionAudioFallback();
     }
-
-    if (isAutoScrolling) return;
-
-    isAutoScrolling = true;
-    lastFrameTime = 0;
-    setAutoScrollButtonVisible(false);
-    autoScrollRaf = requestAnimationFrame(autoScrollStep);
   }
+
+  if (isAutoScrolling) return;
+
+  isAutoScrolling = true;
+  lastFrameTime = 0;
+  setAutoScrollButtonVisible(false);
+  autoScrollRaf = requestAnimationFrame(autoScrollStep);
+}
 
   function handleManualInterruption() {
     if (!isAutoScrolling) return;
@@ -243,15 +352,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 150);
   }
 
-  if (audioBtn) {
-    audioBtn.addEventListener('click', async function () {
-      if (bgAudio.paused) {
-        await playBackgroundAudio();
-      } else {
-        pauseBackgroundAudio();
+if (audioBtn) {
+  audioBtn.addEventListener('click', async function () {
+    if (bgAudio.paused) {
+      const played = await playBackgroundAudio();
+      if (!played) {
+        bindFirstInteractionAudioFallback();
       }
-    });
-  }
+    } else {
+      pauseBackgroundAudio();
+    }
+  });
+}
 
   if (autoScrollBtn) {
     autoScrollBtn.addEventListener('click', async function () {
@@ -278,8 +390,124 @@ document.addEventListener("DOMContentLoaded", function () {
       handleManualInterruption();
     }
   }, { passive: true });
-  initRevealOnScroll();
+    function randomRange(min, max) {
+    return (Math.random() * (max - min) + min).toFixed(2);
+  }
 
-  setAutoScrollButtonVisible(false);
-  startAutoScroll();
+  function initPetalBackground() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const petalLayer = document.querySelector('.fx-petals');
+
+    if (!petalLayer || prefersReducedMotion) return;
+
+    const petalCount = window.innerWidth <= 576 ? 18 : 30;
+    const fragment = document.createDocumentFragment();
+
+    petalLayer.innerHTML = '';
+
+    for (let i = 0; i < petalCount; i++) {
+      const petal = document.createElement('span');
+      const inner = document.createElement('i');
+
+      petal.className = 'petal';
+      petal.appendChild(inner);
+
+      const size = randomRange(14, 28);
+      const startX = randomRange(-8, 100);
+      const drift = randomRange(-16, 16);
+      const fallDuration = randomRange(9, 18);
+      const flutterDuration = randomRange(2.8, 5.6);
+      const fallDelay = randomRange(-20, 0);
+      const rotateEnd = randomRange(120, 340);
+      const opacity = randomRange(0.38, 0.9);
+
+      petal.style.setProperty('--size', `${size}px`);
+      petal.style.setProperty('--x-start', `${startX}vw`);
+      petal.style.setProperty('--x-end', `${parseFloat(startX) + parseFloat(drift)}vw`);
+      petal.style.setProperty('--fall-duration', `${fallDuration}s`);
+      petal.style.setProperty('--flutter-duration', `${flutterDuration}s`);
+      petal.style.setProperty('--fall-delay', `${fallDelay}s`);
+      petal.style.setProperty('--rotate-end', `${rotateEnd}deg`);
+      petal.style.setProperty('--opacity', opacity);
+
+      fragment.appendChild(petal);
+    }
+
+    petalLayer.appendChild(fragment);
+  }
+
+  function initLoaderPetals() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const loaderPetalLayer = document.querySelector('.page-loader__petals');
+
+    if (!loaderPetalLayer || prefersReducedMotion) return;
+
+    const petalCount = window.innerWidth <= 576 ? 22 : 34;
+    const fragment = document.createDocumentFragment();
+
+    loaderPetalLayer.innerHTML = '';
+
+    for (let i = 0; i < petalCount; i++) {
+      const petal = document.createElement('span');
+      const inner = document.createElement('i');
+
+      petal.className = 'loader-petal';
+      petal.appendChild(inner);
+
+      const size = randomRange(10, 20);
+      const startX = randomRange(-8, 100);
+      const drift = randomRange(-18, 18);
+      const fallDuration = randomRange(7, 14);
+      const flutterDuration = randomRange(2.2, 4.8);
+      const fallDelay = randomRange(-16, 0);
+      const rotateEnd = randomRange(120, 340);
+      const opacity = randomRange(0.45, 0.95);
+
+      petal.style.setProperty('--size', `${size}px`);
+      petal.style.setProperty('--x-start', `${startX}vw`);
+      petal.style.setProperty('--x-end', `${parseFloat(startX) + parseFloat(drift)}vw`);
+      petal.style.setProperty('--fall-duration', `${fallDuration}s`);
+      petal.style.setProperty('--flutter-duration', `${flutterDuration}s`);
+      petal.style.setProperty('--fall-delay', `${fallDelay}s`);
+      petal.style.setProperty('--rotate-end', `${rotateEnd}deg`);
+      petal.style.setProperty('--opacity', opacity);
+
+      fragment.appendChild(petal);
+    }
+
+    loaderPetalLayer.appendChild(fragment);
+  }
+
+  function pauseLoaderPetalsWhenHidden() {
+    const loaderPetalLayer = document.querySelector('.page-loader__petals');
+
+    if (!loaderPetalLayer) return;
+
+    loaderPetalLayer.classList.toggle('is-paused', document.hidden);
+  }
+
+  let petalResizeTimer = null;
+
+  initPetalBackground();
+  initLoaderPetals();
+
+  window.addEventListener('resize', function () {
+    clearTimeout(petalResizeTimer);
+    petalResizeTimer = setTimeout(function () {
+      initPetalBackground();
+      initLoaderPetals();
+    }, 220);
+  });
+
+  document.addEventListener('visibilitychange', function () {
+    const petalLayer = document.querySelector('.fx-petals');
+
+    if (petalLayer) {
+      petalLayer.classList.toggle('is-paused', document.hidden);
+    }
+
+    pauseLoaderPetalsWhenHidden();
+  });
+
+  initRevealOnScroll();
 });
